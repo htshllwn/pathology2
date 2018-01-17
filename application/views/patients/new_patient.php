@@ -62,6 +62,17 @@
 				</div>
 	        </div>
 	        <br><hr>
+
+			<div class="form-group">
+	        	<div class="col-xs-6 col-md-4">
+	        		<label class="FormLabel">Due Amount</label>
+	        	</div>
+				<div class="col-xs-12 col-sm-6 col-md-8">
+					<input type="text" name="ref_by" class="form-control" placeholder="Due Amount" required>
+				</div>
+	        </div>
+	        <br><hr>
+
 	        <button onclick="return mobileNoValidation();" type="submit" class="btn btn-primary">Submit</button>
 	    <?php echo form_close(); ?>
 	    </div>
