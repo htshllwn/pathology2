@@ -22,12 +22,15 @@
                     <th>Gender</th>
                     <th>Mobile</th>
                     <th>Referred By</th>
+                    <th>Due Amount</th>
                     <th>Registered At</th>
+                    <th></th>
                     <th></th>
                 </tr>
 
                 <?php foreach($patients as $patient): ?>
                     <?php $link = 'patients/details/'.$patient->id; ?>
+                    <?php $edit_link = 'patients/new_patient/'.$patient->id; ?>
                     <?php $del_link = 'patients/delete_patient/'.$patient->id; ?>
                     <tr class="warning">
                         
@@ -36,7 +39,9 @@
                         <td onclick="window.location.href='<?php echo $link; ?>';return false;"><?php echo $patient->gender ?></td>
                         <td onclick="window.location.href='<?php echo $link; ?>';return false;"><?php echo $patient->mobile ?></td>
                         <td onclick="window.location.href='<?php echo $link; ?>';return false;"><?php echo $patient->ref_by ?></td>
+                        <td onclick="window.location.href='<?php echo $link; ?>';return false;"><?php echo $patient->due_amount ?></td>
                         <td onclick="window.location.href='<?php echo $link; ?>';return false;"><?php echo $patient->created_at ?></td>
+                        <td onclick="window.location.href='<?php echo $edit_link; ?>';return false;"><button class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
                         <td onclick="window.location.href='<?php echo $del_link; ?>';return false;"><button class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
                     
                     </tr>

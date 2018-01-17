@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 05, 2018 at 02:58 PM
+-- Generation Time: Jan 17, 2018 at 10:24 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -219,6 +219,7 @@ CREATE TABLE `patients` (
   `gender` char(1) NOT NULL,
   `mobile` varchar(10) NOT NULL,
   `ref_by` varchar(255) NOT NULL,
+  `due_amount` float NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -226,8 +227,10 @@ CREATE TABLE `patients` (
 -- Dumping data for table `patients`
 --
 
-INSERT INTO `patients` (`id`, `name`, `age`, `gender`, `mobile`, `ref_by`, `created_at`) VALUES
-(1, 'Mrs Meenu Singh', 47, 'F', '7894561233', 'Dr. Ruma Bhattacharya', '2017-12-30 06:34:02');
+INSERT INTO `patients` (`id`, `name`, `age`, `gender`, `mobile`, `ref_by`, `due_amount`, `created_at`) VALUES
+(1, 'Mrs Meenu Singh', 47, 'F', '7894561233', 'Dr. Ruma Bhattacharya', 0, '2017-12-30 06:34:02'),
+(3, 'Hitesh Lalwani', 20, 'M', '7894561230', 'self', 1000, '2018-01-17 08:31:08'),
+(4, 'New Patient', 20, 'O', '6549873210', 'self', 500, '2018-01-17 09:09:57');
 
 -- --------------------------------------------------------
 
@@ -369,7 +372,7 @@ ALTER TABLE `liver-function-test-details`
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `tests`
 --

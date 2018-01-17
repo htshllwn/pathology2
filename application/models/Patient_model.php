@@ -9,12 +9,21 @@
 			$this->db->insert('patients',$data);
 		}
 
+		//Edit Patient
+		public function edit_patient($patient_id, $data){
+			$this->db->set($data);
+			$this->db->where('id',$patient_id);
+			$this->db->update('patients');
+		}
+
 		//Get all patients
 		public function get_patients(){
 			$this->db->order_by('created_at','DESC');
 			$query = $this->db->get('patients');
 			return $query->result();
 		}
+
+		
 
 		//Get single patient details
 		public function get_patient($patient_id){

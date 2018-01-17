@@ -8,13 +8,21 @@
 		<h1 class="PageTitle"><?= $title ?></h1>
 		<hr>
 		<div class="FormBorder">
-		<?php echo form_open('patients/new_patient'); ?>
+		<?php
+			if($mode === 'edit'){
+				echo form_open('patients/new_patient/'.$patient->id);
+			}
+			else {
+				echo form_open('patients/new_patient');
+			}
+			 
+		?>
 	        <div class="form-group">
 	        	<div class="col-xs-6 col-md-4">
 	        		<label class="FormLabel">Patient Name</label>
 	        	</div>
 				<div class="col-xs-12 col-sm-6 col-md-8">
-					<input type="text" name="name"class="form-control" placeholder="Enter Patient Name" required>
+					<input type="text" name="name"class="form-control" placeholder="Enter Patient Name" value="<?php if($mode === 'edit') { echo $patient->name; } ?>" required>
 				</div>
 	        </div>
 	        <br><hr>
@@ -24,7 +32,7 @@
 	        		<label class="FormLabel">Age</label>
 	       		</div>
 				<div class="col-xs-12 col-sm-6 col-md-8">
-					<input type="text" name="age" class="form-control" placeholder="Enter Age" onkeypress="return IsNumber(event , this);" required>
+					<input type="text" name="age" class="form-control" placeholder="Enter Age" value="<?php if($mode === 'edit') { echo $patient->age; } ?>" onkeypress="return IsNumber(event , this);" required>
 				</div>
 	        </div>
 	        <br><hr>
@@ -35,9 +43,27 @@
 	        	</div>
 	        	<div class="col-xs-12 col-sm-6 col-md-8">
 	        		<select name="gender" class="form-control">
-	            		<option value="M">Male</option>
-	            		<option value="F">Female</option>
-	            		<option value="O">Other</option>
+						<option value="M" 
+							<?php if($mode === 'edit') {
+								if($patient->gender === 'M'){
+									echo 'selected="selected"';
+								}
+							 } ?> 
+						>Male</option>
+						<option value="F" 
+							<?php if($mode === 'edit') {
+								if($patient->gender === 'F'){
+									echo 'selected="selected"';
+								}
+							 } ?> 
+						>Female</option>
+						<option value="O" 
+							<?php if($mode === 'edit') {
+								if($patient->gender === 'O'){
+									echo 'selected="selected"';
+								}
+							 } ?> 
+						>Other</option>
 	          		</select>
 	          	</div>
 	        </div>
@@ -48,7 +74,7 @@
 	        		<label class="FormLabel">Mobile Number</label>
 	       		</div>
 				<div class="col-xs-12 col-sm-6 col-md-8">
-					<input type="text" name="mobile" id="mobile"  id="mobile" class="form-control" placeholder='Enter Mobile' maxlength="10" onClick="(this.value='')" onkeypress="return IsNumber(event , this);"  />
+					<input type="text" name="mobile" id="mobile"  id="mobile" class="form-control" placeholder='Enter Mobile' value="<?php if($mode === 'edit') { echo $patient->mobile; } ?>" maxlength="10" onClick="(this.value='')" onkeypress="return IsNumber(event , this);"  />
 				</div>
 	        </div>
 	        <br><hr>
@@ -58,7 +84,7 @@
 	        		<label class="FormLabel">Referred By</label>
 	        	</div>
 				<div class="col-xs-12 col-sm-6 col-md-8">
-					<input type="text" name="ref_by" class="form-control" placeholder="Referred by" required>
+					<input type="text" name="ref_by" class="form-control" placeholder="Referred by" value="<?php if($mode === 'edit') { echo $patient->ref_by; } ?>" required>
 				</div>
 	        </div>
 	        <br><hr>
@@ -68,7 +94,7 @@
 	        		<label class="FormLabel">Due Amount</label>
 	        	</div>
 				<div class="col-xs-12 col-sm-6 col-md-8">
-					<input type="text" name="ref_by" class="form-control" placeholder="Due Amount" required>
+					<input type="text" name="due_amount" class="form-control" placeholder="Due Amount" value="<?php if($mode === 'edit') { echo $patient->due_amount; } ?>" required>
 				</div>
 	        </div>
 	        <br><hr>
