@@ -119,5 +119,6 @@
 			$this->load->view('tests/text_based');
 			$this->load->view('templates/footer');
 
+
 		}
 	}
