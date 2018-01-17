@@ -1,0 +1,119 @@
+body{
+	padding: 0;
+	margin: 0;
+	background: #f4f4f4;
+}
+
+textarea { 
+	resize: vertical; 
+}
+
+.text-based-title {
+	text-align:center;
+	font-weight: bold;
+}
+
+.text-based {
+	border:0;
+}
+
+.MarginBottom{
+	margin-bottom: 0px;
+}
+
+.microscopebg{
+	background: url("../img/microscope.jpg");
+	background-size: cover;
+	width: 100%;
+	margin: 0;
+	
+	padding-bottom: 18%;
+	
+}
+
+.PageTitle{
+	color: white;
+}
+
+.FormBorder{
+	background: #e0eef0;
+	border: 0px dashed black;
+	border-radius: 20px;
+	padding: 10px;
+}
+
+.FormLabel{
+	padding-top: 7px;
+}
+
+.custom-alert{
+	position:fixed; 
+	right: 0;
+	width:25%;
+}
+
+.report-head{
+	border: 1px solid black;
+	border-radius: 10px;
+}
+
+.patient-details{
+	margin-top: 50px;
+	padding-top: 10px;
+	border-top:1px solid black ;
+	border-bottom:1px solid black;
+}
+
+#footer{
+  background-color:#414141;
+  height: 70px;
+  margin:0 auto!important;
+  padding-top: 25px; 
+  text-align: center;
+  font-size: 15px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+
+}
+#footer p{
+	color: black;
+	
+}
+
+#footer a {
+  color:#efefef;
+  margin: 0 auto;
+
+  
+}
+
+.navbar{
+	border-radius: 0;
+	height: 70px;
+	
+
+}
+.nav,.navbar-brand{
+	position: relative;
+	top: 8px;
+	font-size: 16px;
+}
+
+.cat-del{
+
+	float: right;
+	vertical-align: center;
+	
+}
+
+.cat-item{
+	
+	float: left;
+	vertical-align: center;
+	width: 100%;
+}
+
+.btn-hidden{
+	visibility: hidden;
+}
