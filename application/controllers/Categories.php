@@ -93,10 +93,6 @@
 
 				$this->category_model->new_test_details_table($cat_data['test_slug']); //Working
 				redirect('categories/edit_interpretations/'.$cat_data['test_slug']);
-
-				
-				
-
 			}
 		}
 
