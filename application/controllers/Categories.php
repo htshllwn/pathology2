@@ -116,7 +116,7 @@
 				$this->load->view('templates/footer');
 			}
 			else {
-				echo "Submitted";
+				//echo "Submitted";
 				$datainsert = array();
 				foreach($data['columns'] as $column){
 					$datainsert[$column->col_slug] = $this->input->post($column->col_slug);

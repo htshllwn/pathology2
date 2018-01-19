@@ -47,7 +47,7 @@
 				$this->load->view('tests/print',$data);
 			}
 			else{
-				echo "not found";
+				//echo "not found";
 			}
 
 			$this->load->view('templates/footer');
