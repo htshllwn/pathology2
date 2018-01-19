@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 18, 2018 at 09:45 PM
--- Server version: 10.1.29-MariaDB
--- PHP Version: 7.2.0
+-- Host: 127.0.0.1:3306
+-- Generation Time: Jan 19, 2018 at 03:23 PM
+-- Server version: 10.1.25-MariaDB
+-- PHP Version: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -238,19 +238,19 @@ CREATE TABLE `lipid-profile` (
   `units` varchar(255) NOT NULL,
   `reference` text NOT NULL,
   `interpretations` text
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `lipid-profile`
 --
 
 INSERT INTO `lipid-profile` (`id`, `col_name`, `col_slug`, `units`, `reference`, `interpretations`) VALUES
-(1, 'Cholesterol Total', 'cholesterol-total', 'mg/dL', '<200.0 DESIRABLE<br>\r\n200.0 - 239.0 BORDERLINE<br>\r\n>/=240.0 HIGH<br>', 'The body uses cholesterol to help build cells and produce hormones. Too much cholesterol in the blood can build up inside arteries, forming what is known as plaque.'),
-(2, 'Triglycerides', 'triglycerides', 'mg/dL', '<150 NORMAL<br>\r\n150 - 199 BORDERLINE<br>\r\n200 - 499 HIGH<br>\r\n>/=500 VERY HIGH<br>', 'Having a high triglyceride level along with a high LDL cholesterol may increase your chances of having heart disease more than having only a high LDL cholesterol level.'),
-(3, 'Cholesterol HDL', 'cholesterol-hdl', 'mg/dL', '<40.0 LOW<br>\r\n40.0 - 60.0 NORMAL<br>\r\n>/=60.0 HIGH<br>', 'A high level of HDL cholesterol may lower your chances of developing heart disease or stroke.'),
-(4, 'Cholesterol LDL', 'cholesterol-ldl', 'mg/dL', '<100 OPTIMAL<br>\r\n100 - 129 NEAR OPTIMAL<br>\r\n130 - 159 BORDERLINE HIGH<br>\r\n160 - 189 HIGH<br>\r\n>/=190 VERY HIGH<br>', 'A high LDL cholesterol level may increase your chances of developing heart disease.'),
-(5, 'Cholesterol VLDL', 'cholesterol-vldl', 'mg/dL', '<=30.0 NORMAL<br>\r\n>30.0 HIGH<br>', 'A high VLDL cholesterol level can cause the buildup of cholesterol in your arteries and increases your risk of heart disease and stroke.'),
-(6, 'CHOL HDL Ratio', 'chol-hdl-ratio', 'Ratio', '3.3 - 4.4 LOW RISK<br>\r\n4.5 - 7.0 AVERAGE RISK<br>\r\n7.1 - 11.0 MODERATE RISK<br>\r\n>11.0 HIGH RISK<br>', 'An optimal ratio is less than 3.5-to-1. A higher ratio means a higher risk of heart disease.');
+(1, 'CHOLESTEROL TOTAL', 'cholesterol-total', 'mg/dL', '<p>&lt; 200.0 DESIRABLE</p><p>200.0 - 239.0 BORDERLINE</p><p>&gt;/= 240.0 HIGH</p>', NULL),
+(2, 'TRIGLYCERIDES', 'triglycerides', 'mg/dL', '<p>&lt; 150 NORMAL</p><p>150 - 199 BORDERLINE</p><p>200 - 499 HIGH</p><p>&gt;/= 500 VERY HIGH</p>', NULL),
+(3, 'CHOLESTEROL HDL, DIRECT', 'cholesterol-hdl-direct', 'mg/dL', '<p>&lt; 40.0 LOW</p><p>40.0 - 60.0 NORMAL</p><p>&gt;/= 60.0 HIGH</p>', NULL),
+(4, 'CHOLESTEROL LDL, CALCULATED', 'cholesterol-ldl-calculated', 'mg/dL', '<p>&lt; 100 OPTIMAL</p><p>100 - 129 NEAR&nbsp;OPTIMAL</p><p>130 - 159 BORDERLINE</p><p>160 - 189 HIGH</p><p>&gt;/= 190 VERY HIGH</p>', NULL),
+(5, 'CHOLESTEROL VLDL, CALCULATED', 'cholesterol-vldl-calculated', 'mg/dL', '<p>&lt;/= 30.0</p>', NULL),
+(6, 'CHOL / HDL RATIO', 'chol-hdl-ratio', 'Ratio', '<p>3.3 - 4.4 LOW RISK</p><p>4.5 - 7.0 AVERAGE RISK</p><p>7.1 - 11.0 MODERATE RISK</p><p>&gt; 11.0 HIGH RISK</p>', NULL);
 
 -- --------------------------------------------------------
 
@@ -268,16 +268,30 @@ CREATE TABLE `lipid-profile-conditions` (
   `val2` float DEFAULT NULL,
   `result` varchar(255) NOT NULL,
   `show_y_n` char(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `lipid-profile-conditions`
 --
 
 INSERT INTO `lipid-profile-conditions` (`id`, `col_slug`, `con1`, `val1`, `and_or`, `con2`, `val2`, `result`, `show_y_n`) VALUES
-(1, 'cholesterol-total', 'GREATERTHANEQUAL', 200, 'AND', 'LESSERTHANEQUAL', 239, 'BORDERLINE', 'Y'),
+(1, 'cholesterol-total', 'GREATERTHANEQUAL', 200, 'AND', 'LESSERTHAN', 240, 'BORDERLINE', 'Y'),
 (2, 'cholesterol-total', 'GREATERTHANEQUAL', 240, NULL, NULL, NULL, 'HIGH', 'Y'),
-(3, 'cholesterol-total', 'LESSERTHAN', 200, NULL, NULL, NULL, 'LOW', 'N');
+(3, 'triglycerides', 'GREATERTHANEQUAL', 150, 'AND', 'LESSERTHAN', 200, 'BORDERLINE', 'Y'),
+(4, 'triglycerides', 'GREATERTHANEQUAL', 200, 'AND', 'LESSERTHAN', 500, 'HIGH', 'Y'),
+(5, 'triglycerides', 'GREATERTHAN', 500, NULL, NULL, NULL, 'VERY HIGH', 'Y'),
+(6, 'cholesterol-hdl-direct', 'LESSERTHAN', 40, NULL, NULL, NULL, 'LOW', 'Y'),
+(7, 'cholesterol-hdl-direct', 'GREATERTHANEQUAL', 40, 'AND', 'LESSERTHAN', 60, 'NORMAL', 'N'),
+(8, 'cholesterol-hdl-direct', 'GREATERTHANEQUAL', 60, NULL, NULL, NULL, 'HIGH', 'Y'),
+(9, 'cholesterol-ldl-calculated', 'GREATERTHANEQUAL', 100, 'AND', 'LESSERTHAN', 130, 'NEAR OPTIMAL', 'Y'),
+(10, 'cholesterol-ldl-calculated', 'GREATERTHANEQUAL', 130, 'AND', 'LESSERTHAN', 160, 'BORDERLINE', 'Y'),
+(11, 'cholesterol-ldl-calculated', 'GREATERTHANEQUAL', 160, 'AND', 'LESSERTHAN', 190, 'HIGH', 'Y'),
+(12, 'cholesterol-ldl-calculated', 'GREATERTHANEQUAL', 190, NULL, NULL, NULL, 'VERY HIGH', 'Y'),
+(13, 'cholesterol-vldl-calculated', 'GREATERTHAN', 30, NULL, NULL, NULL, 'HIGH', 'Y'),
+(14, 'chol-hdl-ratio', 'GREATERTHANEQUAL', 3.3, 'AND', 'LESSERTHANEQUAL', 4.4, 'LOW', 'Y'),
+(15, 'chol-hdl-ratio', 'GREATERTHANEQUAL', 4.5, 'AND', 'LESSERTHANEQUAL', 7, 'AVERAGE', 'Y'),
+(16, 'chol-hdl-ratio', 'GREATERTHANEQUAL', 7.1, 'AND', 'LESSERTHANEQUAL', 11, 'MODERATE', 'Y'),
+(17, 'chol-hdl-ratio', 'GREATERTHAN', 11, NULL, NULL, NULL, 'HIGH', 'Y');
 
 -- --------------------------------------------------------
 
@@ -290,21 +304,19 @@ CREATE TABLE `lipid-profile-details` (
   `patient-id` int(11) NOT NULL,
   `cholesterol-total` float DEFAULT NULL,
   `triglycerides` float DEFAULT NULL,
-  `cholesterol-hdl` float DEFAULT NULL,
-  `cholesterol-ldl` float DEFAULT NULL,
-  `cholesterol-vldl` float DEFAULT NULL,
+  `cholesterol-hdl-direct` float DEFAULT NULL,
+  `cholesterol-ldl-calculated` float DEFAULT NULL,
+  `cholesterol-vldl-calculated` float DEFAULT NULL,
   `chol-hdl-ratio` float DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `lipid-profile-details`
 --
 
-INSERT INTO `lipid-profile-details` (`id`, `patient-id`, `cholesterol-total`, `triglycerides`, `cholesterol-hdl`, `cholesterol-ldl`, `cholesterol-vldl`, `chol-hdl-ratio`, `created_at`) VALUES
-(1, 1, 167, 170, 40.3, 92.7, 34, 4.1, '2017-12-30 07:59:06'),
-(2, 1, 250, 140, 60.3, NULL, NULL, NULL, '2017-12-30 08:30:27'),
-(4, 1, 20, 20, 20, 20, 20, 20, '2017-12-31 12:24:35');
+INSERT INTO `lipid-profile-details` (`id`, `patient-id`, `cholesterol-total`, `triglycerides`, `cholesterol-hdl-direct`, `cholesterol-ldl-calculated`, `cholesterol-vldl-calculated`, `chol-hdl-ratio`, `created_at`) VALUES
+(1, 1, 167, 170, 40.3, 92.7, 34, 4.1, '2018-01-19 13:44:26');
 
 -- --------------------------------------------------------
 
@@ -452,10 +464,10 @@ CREATE TABLE `tests` (
 --
 
 INSERT INTO `tests` (`test_id`, `test_name`, `test_slug`) VALUES
-(1, 'Lipid Profile', 'lipid-profile'),
 (8, 'LIVER FUNCTION TEST', 'liver-function-test'),
 (9, 'BIO-T PLUS', 'bio-t-plus'),
-(10, 'DIFFERENTIAL LEUKOCYTE COUNT, WHOLE BLOOD', 'differential-leukocyte-count-whole-blood');
+(10, 'DIFFERENTIAL LEUKOCYTE COUNT, WHOLE BLOOD', 'differential-leukocyte-count-whole-blood'),
+(12, 'LIPID PROFILE', 'lipid-profile');
 
 -- --------------------------------------------------------
 
@@ -586,91 +598,76 @@ ALTER TABLE `users`
 --
 ALTER TABLE `bio-t-plus`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
 --
 -- AUTO_INCREMENT for table `bio-t-plus-conditions`
 --
 ALTER TABLE `bio-t-plus-conditions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
 --
 -- AUTO_INCREMENT for table `bio-t-plus-details`
 --
 ALTER TABLE `bio-t-plus-details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `differential-leukocyte-count-whole-blood`
 --
 ALTER TABLE `differential-leukocyte-count-whole-blood`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
 --
 -- AUTO_INCREMENT for table `differential-leukocyte-count-whole-blood-conditions`
 --
 ALTER TABLE `differential-leukocyte-count-whole-blood-conditions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
 --
 -- AUTO_INCREMENT for table `differential-leukocyte-count-whole-blood-details`
 --
 ALTER TABLE `differential-leukocyte-count-whole-blood-details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `lipid-profile`
 --
 ALTER TABLE `lipid-profile`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `lipid-profile-conditions`
 --
 ALTER TABLE `lipid-profile-conditions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `lipid-profile-details`
 --
 ALTER TABLE `lipid-profile-details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `liver-function-test`
 --
 ALTER TABLE `liver-function-test`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
 --
 -- AUTO_INCREMENT for table `liver-function-test-conditions`
 --
 ALTER TABLE `liver-function-test-conditions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
 --
 -- AUTO_INCREMENT for table `liver-function-test-details`
 --
 ALTER TABLE `liver-function-test-details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
 -- AUTO_INCREMENT for table `tests`
 --
 ALTER TABLE `tests`
-  MODIFY `test_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
+  MODIFY `test_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- Constraints for dumped tables
 --
