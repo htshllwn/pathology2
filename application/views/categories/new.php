@@ -1,7 +1,7 @@
 <div id="container" class="container">
 	<h2><?= $title ?></h2><br><br>
 	<?php echo validation_errors(); ?>
-	<?php echo form_open('categories/new'); ?>
+	<?php echo form_open('categories/new_cat'); ?>
 		<div  class="form-group">
 	        	<div class="col-md-2">
 	        		<label class="FormLabel">Category Name</label>

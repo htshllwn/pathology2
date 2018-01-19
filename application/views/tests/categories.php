@@ -17,7 +17,7 @@
 		<div class="col-xs-6 col-md-2"></div>
 		<div class="col-xs-6 col-md-8">
             <?php if($access == 'edit'): ?>
-                <a class="btn btn-default" href="<?php echo base_url(); ?>categories/new"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New Test</a>
+                <a class="btn btn-default" href="<?php echo base_url(); ?>categories/new_cat"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New Test</a>
                 <br><br>
             <?php endif; ?>
             <input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Categories" title="Type in a Category">

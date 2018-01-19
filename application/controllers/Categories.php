@@ -13,13 +13,13 @@
 		}
 
 		//Delete Test Category
-		public function delete($slug){
+		public function delete_cat($slug){
 			$this->category_model->delete_category($slug);
 			redirect('categories');
 		}
 
 		//New Test Category
-		public function new(){
+		public function new_cat(){
 			$data['title'] = 'New Test Category';
 
 			$this->form_validation->set_rules('category_name','Category Name','required');
