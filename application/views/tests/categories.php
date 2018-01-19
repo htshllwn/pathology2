@@ -35,7 +35,8 @@
                         <td><?php echo $test->test_name ?></td>
                         <td align="right">
                             <!--<button class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>-->
-                            <a href="<?php echo base_url().'categories/delete/'.$test->test_slug ?>" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                            <a href="<?php echo base_url().'categories/edit_interpretations/'.$test->test_slug ?>" class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                            <a href="<?php echo base_url().'categories/delete_cat/'.$test->test_slug ?>" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                         </td>
                         
                                 

@@ -2,7 +2,7 @@
 
 <h2><?= $title ?></h2><br><br>
 
-<?php echo form_open('tests/new/'.$slug.'/'.$patient_id); ?>
+<?php echo form_open('tests/new_test/'.$slug.'/'.$patient_id); ?>
 	<input type="hidden" name="hid_patient_id" class="form-control" value="<?php echo $patient_id ?>">
 	<?php foreach($columns as $column): ?>
 		<?php $temp = $column->col_slug; ?>

@@ -22,7 +22,7 @@
 		}
 
 		//Print Test
-		public function print($slug,$p_id,$test_id){
+		public function print_test($slug,$p_id,$test_id){
 
 			//Check Login
 			if(!$this->session->userdata('logged_in')){
@@ -55,7 +55,7 @@
 		}
 
 		//New Test
-		public function new($slug,$p_id){
+		public function new_test($slug,$p_id){
 			//Check Login
 			if(!$this->session->userdata('logged_in')){
 				redirect('users/login');
@@ -92,7 +92,7 @@
 		}
 
 		//Delete Test
-		public function delete($slug,$p_id,$test_id){
+		public function delete_test($slug,$p_id,$test_id){
 			//Check Login
 			if(!$this->session->userdata('logged_in')){
 				redirect('users/login');

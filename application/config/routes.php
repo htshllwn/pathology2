@@ -50,9 +50,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['tests/text_based/(:any)'] = 'tests/text_based/$1';
-$route['tests/new/(:any)/(:any)'] = 'tests/new/$1/$2';
-$route['tests/delete/(:any)/(:any)/(:any)'] = 'tests/delete/$1/$2/$3';
-$route['tests/print/(:any)/(:any)/(:any)'] = 'tests/print/$1/$2/$3';
+$route['tests/new_test/(:any)/(:any)'] = 'tests/new_test/$1/$2';
+$route['tests/delete_test/(:any)/(:any)/(:any)'] = 'tests/delete_test/$1/$2/$3';
+$route['tests/print_test/(:any)/(:any)/(:any)'] = 'tests/print_test/$1/$2/$3';
 $route['tests/(:any)/(:any)'] = 'tests/index/$1/$2';
 $route['default_controller'] = 'patients/new_patient';
 $route['404_override'] = '';
