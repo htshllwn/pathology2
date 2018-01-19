@@ -41,7 +41,7 @@
 				$cat_data['test_slug'] = strtolower(url_title($this->input->post('category_name')));
 				$no_of_tests = $this->input->post('no_of_tests');
 
-				print_r($cat_data);
+				//print_r($cat_data);
 				$this->category_model->new_category($cat_data); //Working
 				$this->category_model->new_test_table($cat_data['test_slug']); //Working
 				$this->category_model->new_test_conditions_table($cat_data['test_slug']); //Working
@@ -49,12 +49,12 @@
 
 				for($i=1;$i<=$rows;$i++){
 					$temp = "row".$i;
-					echo "<br><br><br>";
+					//echo "<br><br><br>";
 					$table_data['col_name'] = $this->input->post($temp.'input1');
 					$table_data['col_slug'] = strtolower(url_title($this->input->post($temp.'input1')));
 					$table_data['units'] = $this->input->post($temp.'input3');
 					$table_data['reference'] = $this->input->post($temp.'input2');
-					print_r($table_data);
+					//print_r($table_data);
 					$this->category_model->insert_into_test_table($cat_data['test_slug'],$table_data); //Working
 
 					$no_of_conditions = $this->input->post($temp."hid_con_count");
@@ -81,13 +81,13 @@
 						else{
 							$condition_data['show_y_n'] = 'N';
 						}
-						echo "<br>";
-						print_r($condition_data);
+						//echo "<br>";
+						//print_r($condition_data);
 						$this->category_model->insert_into_test_conditions_table($cat_data['test_slug'],$condition_data); //Working
 					}
 					
-					echo "<br>";
-					print_r($no_of_conditions);
+					//echo "<br>";
+					//print_r($no_of_conditions);
 					
 				}
 
