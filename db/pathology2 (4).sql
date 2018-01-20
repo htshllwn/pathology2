@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 20, 2018 at 04:18 PM
+-- Generation Time: Jan 20, 2018 at 05:20 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -37,6 +37,14 @@ CREATE TABLE `accounts` (
   `due` float NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `accounts`
+--
+
+INSERT INTO `accounts` (`id`, `patient_name`, `test_name`, `lab_id`, `amount`, `due`, `date`) VALUES
+(1, 'Hitesh', 'Lipid Profile', 1, 100, 20, '2018-01-17'),
+(2, 'XYZ', 'Lipid Profile', 2, 500, 250, '2017-10-11');
 
 -- --------------------------------------------------------
 
@@ -648,7 +656,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `bio-t-plus`
 --
