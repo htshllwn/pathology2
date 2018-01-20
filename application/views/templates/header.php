@@ -34,13 +34,15 @@
           <ul class="nav navbar-nav">
             <li><a href="<?php echo base_url(); ?>">Home</a></li>
             <li><a href="<?php echo base_url(); ?>patients">Patients</a></li>
-          	<li><a href="<?php echo base_url(); ?>categories">Categories</a></li>
+            <li><a href="<?php echo base_url(); ?>categories">Categories</a></li>
+            <li><a href="<?php echo base_url(); ?>labs">Labs</a></li>
           </ul>
 
           
 
           <ul class="nav navbar-nav navbar-right">
             <?php if($this->session->userdata('logged_in')): ?>
+            <li><a href="<?php echo base_url(); ?>accounts">Accounts</a></li>
             <li><a href="<?php echo base_url(); ?>users/logout">Logout</a></li>
           <?php endif; ?>
           </ul>

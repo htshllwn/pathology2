@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 19, 2018 at 03:23 PM
+-- Generation Time: Jan 20, 2018 at 04:18 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -21,6 +21,22 @@ SET time_zone = "+00:00";
 --
 -- Database: `pathology2`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `accounts`
+--
+
+CREATE TABLE `accounts` (
+  `id` int(11) NOT NULL,
+  `patient_name` varchar(255) NOT NULL,
+  `test_name` varchar(255) NOT NULL,
+  `lab_id` int(11) NOT NULL,
+  `amount` float NOT NULL,
+  `due` float NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -120,7 +136,8 @@ CREATE TABLE `bio-t-plus-details` (
 --
 
 INSERT INTO `bio-t-plus-details` (`id`, `patient-id`, `hemoglobin`, `hematocrit`, `rbc-count`, `mcv`, `mch`, `mchc`, `rdw-cv`, `platelet-count`, `total-leucocyte-count`, `created_at`) VALUES
-(1, 1, 11.5, 37.4, 3.66, 102.4, 31.4, 30.6, 14.8, 152, 7.1, '2018-01-18 20:27:15');
+(1, 1, 11.5, 37.4, 3.66, 102.4, 31.4, 30.6, 14.8, 152, 7.1, '2018-01-18 20:27:15'),
+(3, 3, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2018-01-19 15:40:40');
 
 -- --------------------------------------------------------
 
@@ -224,6 +241,28 @@ CREATE TABLE `differential-leukocyte-count-whole-blood-details` (
 
 INSERT INTO `differential-leukocyte-count-whole-blood-details` (`id`, `patient-id`, `neutrophils`, `lymphocytes`, `monocytes`, `eosinophils`, `basophils`, `absolute-neutrophil-count`, `absolute-lymphocyte-count`, `absolute-monocyte-count`, `absolute-eosinophil-count`, `absolute-basophil-count`, `created_at`) VALUES
 (1, 1, 63.2, 29.8, 4.2, 2.6, 0.2, 4.47, 2.11, 0.3, 0.19, 0.02, '2018-01-18 20:42:53');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `labs`
+--
+
+CREATE TABLE `labs` (
+  `id` int(11) NOT NULL,
+  `lab_name` varchar(255) NOT NULL,
+  `lab_add` text NOT NULL,
+  `lab_phone` varchar(255) NOT NULL,
+  `lab_email` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `labs`
+--
+
+INSERT INTO `labs` (`id`, `lab_name`, `lab_add`, `lab_phone`, `lab_email`) VALUES
+(1, 'Diagno Labs', 'Indrapuri', '7554247774', 'dac.bhpal@daignolabs.com'),
+(2, 'Thyrocare', 'add1', '435', '');
 
 -- --------------------------------------------------------
 
@@ -494,6 +533,12 @@ INSERT INTO `users` (`id`, `username`, `password`, `created_at`) VALUES
 --
 
 --
+-- Indexes for table `accounts`
+--
+ALTER TABLE `accounts`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `bio-t-plus`
 --
 ALTER TABLE `bio-t-plus`
@@ -530,6 +575,12 @@ ALTER TABLE `differential-leukocyte-count-whole-blood-conditions`
 ALTER TABLE `differential-leukocyte-count-whole-blood-details`
   ADD PRIMARY KEY (`id`),
   ADD KEY `patient-id` (`patient-id`);
+
+--
+-- Indexes for table `labs`
+--
+ALTER TABLE `labs`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `lipid-profile`
@@ -594,6 +645,11 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `accounts`
+--
+ALTER TABLE `accounts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `bio-t-plus`
 --
 ALTER TABLE `bio-t-plus`
@@ -607,7 +663,7 @@ ALTER TABLE `bio-t-plus-conditions`
 -- AUTO_INCREMENT for table `bio-t-plus-details`
 --
 ALTER TABLE `bio-t-plus-details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `differential-leukocyte-count-whole-blood`
 --
@@ -623,6 +679,11 @@ ALTER TABLE `differential-leukocyte-count-whole-blood-conditions`
 --
 ALTER TABLE `differential-leukocyte-count-whole-blood-details`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `labs`
+--
+ALTER TABLE `labs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `lipid-profile`
 --
@@ -657,7 +718,7 @@ ALTER TABLE `liver-function-test-details`
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `tests`
 --
