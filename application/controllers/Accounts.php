@@ -9,7 +9,7 @@
 
 
             $data['accounts'] = $this->account_model->get_accounts();
-
+            $data['mode'] = "all_labs";
             $this->load->view('templates/header');
             $this->load->view('accounts/all',$data);
             $this->load->view('templates/footer');

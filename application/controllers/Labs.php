@@ -60,9 +60,34 @@
 
         }
 
+        //Details of a Lab
+        public function lab_details($lab_id){
+            //Check Login
+			if(!$this->session->userdata('logged_in')){
+				redirect('users/login');
+            }
+            
+            $data['lab'] = $this->lab_model->get_lab($lab_id);
+            $data['accounts'] = $this->account_model->get_accounts($lab_id);
+            $data['mode'] = 'single_lab';
+            $data['total_amount'] = $this->account_model->get_total_amount($lab_id);
+            $data['total_due'] = $this->account_model->get_total_due($lab_id);
+
+            $this->load->view('templates/header');
+            $this->load->view('labs/details',$data);
+            $this->load->view('accounts/all',$data);
+            $this->load->view('templates/footer');
+        }
+
 
         //Delete a Lab
 		public function delete_lab($lab_id){
+
+            //Check Login
+			if(!$this->session->userdata('logged_in')){
+				redirect('users/login');
+            }
+            
 			//echo "deleting ".$id;
 			$this->lab_model->delete_lab($lab_id);
 			

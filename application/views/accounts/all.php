@@ -1,9 +1,12 @@
 <div class="container">
 
-    <h2>Accounts</h2>
-	<hr>
-	<a class="btn btn-default" href="<?php echo base_url(); ?>accounts/new_account/"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New</a>
-    <br><br>
+    <?php if($mode === 'all_labs'): ?>
+        <h2>Accounts</h2>
+        <hr>
+        <a class="btn btn-default" href="<?php echo base_url(); ?>accounts/new_account/"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New</a>
+        <br><br>
+    <?php endif; ?>
+
 	<input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Accounts">
 	<br>
 	<br>
@@ -16,8 +19,10 @@
                     <th>Amount</th>
                     <th>Due</th>
                     <th>Date</th>
+                    <?php if($mode === 'all_labs'): ?>
                     <th></th>
                     <th></th>
+                    <?php endif; ?>
                 </tr>
 
                 <?php foreach($accounts as $account): ?>
@@ -27,15 +32,16 @@
                     <?php $lab = $this->lab_model->get_lab($account->lab_id); ?>
                     <tr class="warning">
                         
-                        <td onclick="window.location.href='<?php echo $link; ?>';return false;"><?php echo $account->patient_name ?></td>
-                        <td onclick="window.location.href='<?php echo $link; ?>';return false;"><?php echo $account->test_name ?></td>
-                        <td onclick="window.location.href='<?php echo $link; ?>';return false;"><?php echo $lab->lab_name ?></td>
-                        <td onclick="window.location.href='<?php echo $link; ?>';return false;"><?php echo $account->amount ?></td>
-                        <td onclick="window.location.href='<?php echo $link; ?>';return false;"><?php echo $account->due ?></td>
-                        <td onclick="window.location.href='<?php echo $link; ?>';return false;"><?php echo $account->date ?></td>
+                        <td onclick="window.location.href='<?php if($mode === 'all_labs'){echo $link;} ?>';return false;"><?php echo $account->patient_name ?></td>
+                        <td onclick="window.location.href='<?php if($mode === 'all_labs'){echo $link;} ?>';return false;"><?php echo $account->test_name ?></td>
+                        <td onclick="window.location.href='<?php if($mode === 'all_labs'){echo $link;} ?>';return false;"><?php echo $lab->lab_name ?></td>
+                        <td onclick="window.location.href='<?php if($mode === 'all_labs'){echo $link;} ?>';return false;"><?php echo $account->amount ?></td>
+                        <td onclick="window.location.href='<?php if($mode === 'all_labs'){echo $link;} ?>';return false;"><?php echo $account->due ?></td>
+                        <td onclick="window.location.href='<?php if($mode === 'all_labs'){echo $link;} ?>';return false;"><?php echo $account->date ?></td>
+                        <?php if($mode === 'all_labs'): ?>
                         <td onclick="window.location.href='<?php echo $edit_link; ?>';return false;"><button class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
                         <td onclick="window.location.href='<?php echo $del_link; ?>';return false;"><button class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
-                    
+                        <?php endif; ?>
                     </tr>
                 <?php endforeach; ?>
             </table>

@@ -5,7 +5,12 @@
         }
 
         //Get All Accounts
-        public function get_accounts() {
+        public function get_accounts($lab_id = NULL) {
+
+			if($lab_id != NULL) {
+				$this->db->where('lab_id',$lab_id);
+			}
+
             $query = $this->db->get('accounts');
 			return ($query->result());
         }
@@ -35,7 +40,29 @@
 			else{
 				return false;
 			}
-        }
+		}
+		
+		//Get Total Amount of a LAB
+		public function get_total_amount($lab_id){
+			
+			$this->db->select_sum('amount');
+			$this->db->from('accounts');
+			$this->db->where('lab_id',$lab_id);
+			$query = $this->db->get();
+			return $query->row()->amount;
+
+		}
+
+		//Get Total Due of a LAB
+		public function get_total_due($lab_id){
+			
+			$this->db->select_sum('due');
+			$this->db->from('accounts');
+			$this->db->where('lab_id',$lab_id);
+			$query = $this->db->get();
+			return $query->row()->due;
+
+		}
 
 
         //Delete Account
