@@ -40,7 +40,7 @@
                         <td onclick="window.location.href='<?php echo $link; ?>';return false;"><?php echo $patient->mobile ?></td>
                         <td onclick="window.location.href='<?php echo $link; ?>';return false;"><?php echo $patient->ref_by ?></td>
                         <td onclick="window.location.href='<?php echo $link; ?>';return false;"><?php echo $patient->due_amount ?></td>
-                        <td onclick="window.location.href='<?php echo $link; ?>';return false;"><?php echo $patient->created_at ?></td>
+                        <td onclick="window.location.href='<?php echo $link; ?>';return false;"><?php echo date("d/M/Y h:i:s a", strtotime($patient->created_at)); ?></td>
                         <td onclick="window.location.href='<?php echo $edit_link; ?>';return false;"><button class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
                         <td onclick="window.location.href='<?php echo $del_link; ?>';return false;"><button class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
                     
