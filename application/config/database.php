@@ -76,16 +76,16 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	
+	/*
 	'username' => 'freshbas_pathroo',
 	'password' => 'pathology@1234',
 	'database' => 'freshbas_pathology2',
+	*/
 	
-	/*
 	'username' => 'root',
 	'password' => '',
 	'database' => 'pathology2',
-	*/
+	
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
