@@ -10,6 +10,7 @@
 			if($lab_id != NULL) {
 				$this->db->where('lab_id',$lab_id);
 			}
+			$this->db->order_by('date','desc');
 
             $query = $this->db->get('accounts');
 			return ($query->result());

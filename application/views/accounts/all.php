@@ -37,7 +37,7 @@
                         <td onclick="window.location.href='<?php if($mode === 'all_labs'){echo $link;} ?>';return false;"><?php echo $lab->lab_name ?></td>
                         <td onclick="window.location.href='<?php if($mode === 'all_labs'){echo $link;} ?>';return false;"><?php echo $account->amount ?></td>
                         <td onclick="window.location.href='<?php if($mode === 'all_labs'){echo $link;} ?>';return false;"><?php echo $account->due ?></td>
-                        <td onclick="window.location.href='<?php if($mode === 'all_labs'){echo $link;} ?>';return false;"><?php echo $account->date ?></td>
+                        <td onclick="window.location.href='<?php if($mode === 'all_labs'){echo $link;} ?>';return false;"><?php echo date("d/M/Y", strtotime($account->date)); ?></td>
                         <?php if($mode === 'all_labs'): ?>
                         <td onclick="window.location.href='<?php echo $edit_link; ?>';return false;"><button class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></td>
                         <td onclick="window.location.href='<?php echo $del_link; ?>';return false;"><button class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
