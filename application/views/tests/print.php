@@ -138,8 +138,9 @@
 				</div>
 			</div>
 			<?php $interpretations .= "<li>".$column->interpretations."<br>"; ?>
+			<br>
 		<?php endif; ?>
-		<br>
+		
 	<?php endforeach; ?>
 
 	<?php $interpretations .= "</ul>"; ?>

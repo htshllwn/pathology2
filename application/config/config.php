@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 //$config['base_url'] = 'https://www.freshbasket.co.in/phptest/pathology2/';
-$config['base_url'] = 'http://172.16.20.136/pathology2/';
+$config['base_url'] = 'http://localhost/pathology2/';
 
 /*
 |--------------------------------------------------------------------------
