@@ -124,4 +124,20 @@
 
 
 		}
+
+		//Blood Widal Table
+		public function widal($p_id){
+			//Check Login
+			if(!$this->session->userdata('logged_in')){
+				redirect('users/login');
+			}
+
+			$data['patient'] = $this->patient_model->get_patient($p_id);
+
+			$this->load->view('templates/header');
+			$this->load->view('patients/details',$data);
+			$this->load->view('tests/widal',$data);
+			$this->load->view('templates/footer');
+
+		}
 	}

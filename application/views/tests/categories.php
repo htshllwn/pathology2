@@ -50,7 +50,12 @@
                         <td><a href="<?php echo base_url().'tests/text_based/'.$test->test_slug.'/'.$patient->id ?>" class="list-group-item"><?php echo $test->test_name ?></a></td>
                     </tr>
                 <?php endforeach; ?>
+                <tr>
+                    <td><a href="<?php echo base_url().'tests/widal/'.$patient->id ?>" class="list-group-item">BLOOD WIDAL</a></td>
+                </tr>
                 <?php endif; ?>
+
+                
 
         	</table>
     	</div>
