@@ -82,6 +82,7 @@
 
 			$data['patient'] = $this->patient_model->get_patient($patient_id);
 			$data['tests'] = $this->tests_model->get_all_tests();
+			$data['tb_tests'] = $this->text_based_model->get_all_tests();
 			$data['access'] = 'view';
 			//print_r($data['tests']);
 			$this->load->view('templates/header');

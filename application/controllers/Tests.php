@@ -104,7 +104,7 @@
 		}
 
 		//New Text based test
-		public function text_based($p_id){
+		public function text_based($tb_slug,$p_id){
 			//echo 'text based for '.$p_id;
 
 			//Check Login
@@ -113,10 +113,13 @@
 			}
 
 			$data['patient'] = $this->patient_model->get_patient($p_id);
+			$data['columns'] = $this->text_based_model->get_column_names($tb_slug);
+			$data['title'] = $this->text_based_model->get_test($tb_slug);
+			
 
 			$this->load->view('templates/header');
 			$this->load->view('patients/details',$data);
-			$this->load->view('tests/text_based');
+			$this->load->view('tests/text_based',$data);
 			$this->load->view('templates/footer');
 
 

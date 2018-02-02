@@ -6,7 +6,7 @@
 	<div class="row">
         <div class="col-xs-6 col-md-2"></div>
         <div class="col-xs-6 col-md-8">
-            <a href="<?php echo base_url().'tests/text_based/'.$patient->id; ?>" class="btn btn-default"> New Text based Test</a>
+            <!-- <a href="<?php echo base_url().'tests/text_based/'.$patient->id; ?>" class="btn btn-default"> New Text based Test</a> -->
         </div>
         <div class="col-xs-6 col-md-2"></div>
     </div>
@@ -44,6 +44,14 @@
                     <?php endif; ?>
                     </tr>
                 <?php endforeach; ?>
+                <?php if($access == 'view'): ?>
+                <?php foreach ($tb_tests as $test): ?>
+                    <tr>
+                        <td><a href="<?php echo base_url().'tests/text_based/'.$test->test_slug.'/'.$patient->id ?>" class="list-group-item"><?php echo $test->test_name ?></a></td>
+                    </tr>
+                <?php endforeach; ?>
+                <?php endif; ?>
+
         	</table>
     	</div>
         <div class="col-xs-6 col-md-2"></div>

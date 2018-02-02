@@ -35,6 +35,7 @@
             <li><a href="<?php echo base_url(); ?>">Home</a></li>
             <li><a href="<?php echo base_url(); ?>patients">Patients</a></li>
             <li><a href="<?php echo base_url(); ?>categories">Categories</a></li>
+            <li><a href="<?php echo base_url(); ?>text_based">Text Based</a></li>
             <li><a href="<?php echo base_url(); ?>labs">Labs</a></li>
           </ul>
 

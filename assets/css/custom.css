@@ -11,6 +11,12 @@ textarea {
 .text-based-title {
 	text-align:center;
 	font-weight: bold;
+	text-decoration: underline;
+}
+
+.text-based-title2 {
+	font-weight: bold;
+	text-decoration: underline;
 }
 
 .text-based {
