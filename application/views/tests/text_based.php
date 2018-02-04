@@ -1,5 +1,5 @@
 <?php $interpretations = "<strong><u>Interpretation(s)</u></strong><br><ul>"; ?>
-
+<?php $pass = FALSE; ?>
 <div class="container">
     <div class="print-hidden">
         <h2>Text Based</h2><br><br>
@@ -33,6 +33,7 @@
         </div>
         <?php
             if($column->interpretations != NULL){
+                $pass = TRUE;
                 $interpretations .= "<li>".$column->interpretations."<br>";
             }          
         ?>
@@ -42,7 +43,11 @@
     <br><br>
     <?php $interpretations .= "</ul>"; ?>
 	<div class="row">
-		<?php echo $interpretations; ?>
+        <?php 
+            if($pass){
+                echo $interpretations;
+            }    
+        ?>
 	</div>
 	<br>
 	<br>
