@@ -11,7 +11,7 @@
 					<label class="FormLabel"><?php echo strtoupper($column->col_name); ?></label>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-8">
-					<input type="text" name="<?php echo $column->col_slug; ?>" class="form-control" value="<?php echo $column->interpretations; ?>" required>
+					<input type="text" name="<?php echo $column->col_slug; ?>" class="form-control" value="<?php echo $column->interpretations; ?>">
 				</div>
 			</div>
 		    <br><hr>

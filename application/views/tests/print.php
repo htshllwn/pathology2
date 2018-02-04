@@ -1,6 +1,6 @@
 
 <?php $interpretations = "<strong><u>Interpretation(s)</u></strong><br><ul>"; ?>
-
+<?php $pass = FALSE; ?>
 <div class="container">
 	<strong><?= strtoupper($title) ?></strong>
 	<br>
@@ -137,7 +137,12 @@
 					<?php echo $column->units; ?>
 				</div>
 			</div>
-			<?php $interpretations .= "<li>".$column->interpretations."<br>"; ?>
+			<?php
+				if($column->interpretations != NULL){
+					$pass = TRUE;
+					$interpretations .= "<li>".$column->interpretations."<br>";
+				}          
+        	?>
 			<br>
 		<?php endif; ?>
 		
@@ -145,7 +150,11 @@
 
 	<?php $interpretations .= "</ul>"; ?>
 	<div class="row">
-		<?php echo $interpretations; ?>
+		<?php 
+            if($pass){
+                echo $interpretations;
+            }    
+        ?>
 	</div>
 	<br>
 	<br>
