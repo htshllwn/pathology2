@@ -84,7 +84,7 @@ $db['default'] = array(
 	
 	'username' => 'root',
 	//'password' => 'Cynix@123', // LAMP
-	'password' => 'Cynix@123', // XAMPP
+	'password' => '', // XAMPP
 	'database' => 'pathology2',
 	
 	'dbdriver' => 'mysqli',
