@@ -77,14 +77,14 @@ $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
 	/*
-	'username' => 'freshbas_pathroo',
-	'password' => 'pathology@1234',
-	'database' => 'freshbas_pathology2',
+	'username' => 'root',
+	'password' => 'Cynix@123',
+	'database' => 'pathology2',
 	*/
 	
 	'username' => 'root',
 	//'password' => 'Cynix@123', // LAMP
-	'password' => '', // XAMPP
+	'password' => 'Cynix@123', // XAMPP
 	'database' => 'pathology2',
 	
 	'dbdriver' => 'mysqli',
