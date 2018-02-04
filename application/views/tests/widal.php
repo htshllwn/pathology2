@@ -61,7 +61,49 @@
     <?php $interpretations .= "</ul>"; ?>
     <div class="row">
 		<?php echo $interpretations; ?>
+    </div>
+	<br>
+	<br>
+
+    <div>
+	<div class="row">
+
+		<div class="col-md-6">
+			<img src="<?php echo base_url().'assets/img/Sign_LT.jpg'; ?>" width="200" height="100"><br>
+		</div>
+		
+		<div class="col-md-6">
+			<img src="<?php echo base_url().'assets/img/Sign_MD.jpg'; ?>" width="200" height="100" align="right"><br>
+		</div>
+
 	</div>
+
+	<div class="row">
+
+			<div class="col-md-6">
+				<h4 style="padding-left: 25px;">
+					Lab Technician<br>
+					D.Kushwah<br>
+					Reg. No. 11269/2010<br>
+				</h4>
+			</div>
+			
+			<div class="col-md-6">
+			<h4 style="float: right; padding-right: 25px;">
+				<span style="text-align: left; padding-right: 25px;">
+					Pathologist<br>
+					Dr. Rajesh Kumar, <small>MBBS, MD</small><br>
+					Reg. No. MP 2808<br>
+				</span>
+			</h4>
+			</div>
+	
+	</div>
+
+	
+    </div>
+
+    
     <br><br>
 
     <button onclick="window.print();" class="btn btn-primary printButton">Print</button>
