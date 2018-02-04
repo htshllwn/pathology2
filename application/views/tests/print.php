@@ -158,7 +158,7 @@
 		</div>
 		
 		<div class="col-md-6">
-			<img src="<?php echo base_url().'assets/img/Sign_MD.jpg'; ?>" width="200" height="100" align="right"><br>
+			<img src="<?php echo base_url().'assets/img/Sign_MD.jpg'; ?>" width="200" height="100" align="right" style="margin-right: 20px;"><br>
 		</div>
 
 	</div>
@@ -174,9 +174,9 @@
 			</div>
 			
 			<div class="col-md-6">
-			<h4 style="float: right; padding-right: 25px;">
-				<span style="text-align: left; padding-right: 25px;">
-					Pathologist<br>
+			<h4 style="float: right; padding-right: 0px;">
+				<span style="text-align: left; padding-right: 0px;">
+					Consultant Pathologist<br>
 					Dr. Rajesh Kumar, <small>MBBS, MD</small><br>
 					Reg. No. MP 2808<br>
 				</span>
