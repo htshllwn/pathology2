@@ -177,7 +177,7 @@
 			<h4 style="float: right; padding-right: 25px;">
 				<span style="text-align: left; padding-right: 25px;">
 					Pathologist<br>
-					Dr. RK Chourasia<br>
+					Dr. Rajesh Kumar, <small>MBBS, MD</small><br>
 					Reg. No. MP 2808<br>
 				</span>
 			</h4>
