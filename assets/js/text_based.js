@@ -13,3 +13,39 @@ function removeTest() {
     }
     
 }
+
+function print_text_based(){
+    console.log("Printing Text Based");
+    var i = 1;
+    var max_i = parseInt($("#max_i").val());
+
+    for( ; i <= max_i ; i++){
+        var rowChild = document.getElementById(i).children;
+        var left = rowChild[0].children;
+        var right = rowChild[1].children;
+        //left[0].val();
+        console.log(rowChild);
+
+        if(right.length != 0){
+            if(right[0].value == ""){
+                document.getElementById(i).style.display = 'none';
+            }
+        }
+        else{
+            if(left.length != 0){
+                if(left[0].value == ""){
+                    document.getElementById(i).style.display = 'none';
+                }
+            }
+        }
+
+        
+        console.log(left[0].value);
+        console.log(right.length);
+    }
+
+
+    console.log(max_i);
+
+    window.print();
+}

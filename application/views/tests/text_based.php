@@ -15,9 +15,11 @@
     </div>
 
     <div id="textTests">
+    <?php $i = 0; ?>
     <?php foreach($columns as $column): ?>
-        <div class="row">
-        <div class="form-group">
+        <?php $i++; ?>
+        <div class="row" id="<?php echo $i ?>">
+        
             <div class="col-xs-6 col-md-4">
                 <?php if($column->cat == 'TITLE'): ?>
                     <input type="text" class="form-control text-based text-based-title2" value="<?php echo $column->col_name ?>" placeholder="Test Name">
@@ -30,7 +32,7 @@
                     <input type="text" class="form-control text-based" placeholder="Test Details">
                 <?php endif; ?>
             </div>
-        </div>
+        
         <?php
             if($column->interpretations != NULL){
                 $pass = TRUE;
@@ -39,6 +41,7 @@
         ?>
     </div>
     <?php endforeach; ?>
+    <input type="text" value="<?php echo $i; ?>" id="max_i" hidden>
     </div>
     <br><br>
     <?php $interpretations .= "</ul>"; ?>
@@ -95,7 +98,7 @@
         <button type="button" class="btn btn-default glyphicon glyphicon-plus print-hidden" onclick="addTest();"></button>
         <button type="button" class="btn btn-default glyphicon glyphicon-minus print-hidden" onclick="removeTest();"></button>
         -->
-        <button onclick="window.print();" class="btn btn-primary printButton">Print</button>
+        <button onclick="print_text_based();" class="btn btn-primary printButton">Print</button>
     </div>
     <br><br>
 
