@@ -140,4 +140,21 @@
 			$this->load->view('templates/footer');
 
 		}
+
+		//Receipt
+		public function receipt($p_id){
+			//Check Login
+			if(!$this->session->userdata('logged_in')){
+				redirect('users/login');
+			}
+
+			$data['patient'] = $this->patient_model->get_patient($p_id);
+			$data['tests'] = $this->tests_model->get_all_tests();
+			$data['tb_tests'] = $this->text_based_model->get_all_tests();
+			$this->load->view('templates/header');
+			$this->load->view('patients/details',$data);
+			$this->load->view('tests/receipt',$data);
+			$this->load->view('templates/footer');
+
+		}
 	}
