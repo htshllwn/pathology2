@@ -6,7 +6,7 @@
 	<div class="row">
         <div class="col-xs-6 col-md-2"></div>
         <div class="col-xs-6 col-md-8">
-            <a href="<?php echo base_url().'tests/receipt/'.$patient->id; ?>" class="btn btn-default"><i class="glyphicon glyphicon-edit"></i> Receipt</a>
+            <!-- <a href="<?php echo base_url().'tests/receipt/'.$patient->id; ?>" class="btn btn-default"><i class="glyphicon glyphicon-edit"></i> Receipt</a> -->
         </div>
         <div class="col-xs-6 col-md-2"></div>
     </div>
