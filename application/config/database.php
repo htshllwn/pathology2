@@ -75,17 +75,17 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
+	'hostname' => 'sql9.freesqldatabase.com',
 	/*
 	'username' => 'root',
 	'password' => 'Cynix@123',
 	'database' => 'pathology2',
 	*/
 	
-	'username' => 'root',
-	'password' => 'CynixMySQL@123', // LAMP
+	'username' => 'sql9236713',
+	'password' => 'Lcz41RcHpJ', 
 	//'password' => '', // XAMPP
-	'database' => 'pathology2',
+	'database' => 'sql9236713',
 	
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
