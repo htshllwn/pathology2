@@ -24,8 +24,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 //$config['base_url'] = 'https://www.freshbasket.co.in/phptest/pathology2/';
-$config['base_url'] = 'http://localhost/pathology2/';
-
+// $config['base_url'] = 'http://localhost/pathology2/';
+$config['base_url'] = 'https://pathology2.herokuapp.com/';
 /*
 |--------------------------------------------------------------------------
 | Index File
