@@ -75,17 +75,17 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'sql3.freesqldatabase.com',
+	'hostname' => 'db4free.net',
 	/*
 	'username' => 'root',
 	'password' => 'Cynix@123',
 	'database' => 'pathology2',
 	*/
 	
-	'username' => 'sql3248797',
-	'password' => 'hAHFnIpXlN', 
+	'username' => 'pathadm',
+	'password' => 'pathroot', 
 	//'password' => '', // XAMPP
-	'database' => 'sql3248797',
+	'database' => 'pathology2',
 	
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
